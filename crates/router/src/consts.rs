@@ -529,6 +529,9 @@ pub mod superposition {
     pub const THREEDS_ROUTING_REGION_UAS: &str = "routing.threeds_routing_region_uas";
     /// disabled webhook events configuration key per merchant and connector
     pub const INCOMING_WEBHOOK_DISABLED_EVENTS: &str = "webhooks.incoming_webhook_disabled_events";
+    /// Allowed incoming webhook source IPs/CIDRs, keyed by connector.
+    pub const INCOMING_WEBHOOK_ALLOWED_IP_RANGES: &str =
+        "webhooks.incoming_webhooks_allowed_ip_ranges";
     /// Whether unverified webhook rate limiting is enabled, defaults to `false`
     pub const UNVERIFIED_WEBHOOK_RATE_LIMIT_ENABLED: &str =
         "webhooks.unverified_webhook_rate_limit_enabled";
