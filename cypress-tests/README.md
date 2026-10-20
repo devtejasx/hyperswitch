@@ -277,10 +277,10 @@ The folder structure of this directory is as follows:
 
 1. Include the connector details in the `creds.json` file
 
-2. Add the new connector details to the ConnectorUtils folder (including CardNo and connector-specific information).
+2. Add the new connector details to the `cypress/e2e/configs` folder (including CardNo and connector-specific information).
 
-   To add a new Payment connector, refer to [`Stripe.js`](cypress/e2e/PaymentUtils/Stripe.js) file for reference.
-   To add a new Payout connector, refer to [`Adyen.js`](cypress-tests/cypress/e2e/PayoutUtils/Adyen.js) file for reference.
+   To add a new Payment connector, refer to [`Stripe.js`](cypress/e2e/configs/Payment/Stripe.js) file for reference.
+   To add a new Payout connector, refer to [`Adyen.js`](cypress/e2e/configs/Payout/Adyen.js) file for reference.
 
    **File Naming:** Create a new file named <connector_name>.js for your specific connector.
 
@@ -289,11 +289,11 @@ The folder structure of this directory is as follows:
    **Handling Unsupported Features:**
    - If a connector does not support a specific payment method or a feature:
    - The relevant configurations in the `<connector_name>.js` file can be omitted
-   - The handling of unsupported or unimplemented features will be managed by the [`Commons.js`](cypress/e2e/PaymentUtils/Commons.js) file, which will throw the appropriate `unsupported` or `not implemented` error
+   - The handling of unsupported or unimplemented features will be managed by the [`Commons.js`](cypress/e2e/configs/Payment/Commons.js) file, which will throw the appropriate `unsupported` or `not implemented` error
 
-3. In `Utils.js`, import the new connector details
+3. In `Utils.js` in the same folder (for example [`configs/Payment/Utils.js`](cypress/e2e/configs/Payment/Utils.js)), import the new connector details
 
-4. If the connector has a specific redirection requirement, add relevant redirection logic in `support/redirectionHandler.js`
+4. If the connector has a specific redirection requirement, add relevant redirection logic in [`support/redirectionHandler.js`](cypress/support/redirectionHandler.js)
 
 ### Developing Core Features or adding new tests
 
